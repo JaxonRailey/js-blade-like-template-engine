@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS blade-like template engine</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <template id="template-app">
+
+        <!-- print simple value -->
+        <h1>Created By {{user}}</h1>
+
+        <!-- if...else statement -->
+        @if (hour < 12)
+            <p>Good Morning</p>
+        @elseif (hour < 18)
+            <p>Good Afternoon</p>
+        @else
+            <p>Good Evening</p>
+        @endif
+
+        <hr>
+
+        <!-- switch statement -->
+        @switch (day)
+            @case (1)
+                <p>today is Monday :(</p>
+                @break
+            @case (2)
+                <p>today is Tuesday :(</p>
+                @break
+            @case (3)
+                <p>today is Wednesday :(</p>
+                @break
+            @case (4)
+                <p>today is Thursday :|</p>
+                @break
+            @case (5)
+                <p>today is Friday :)</p>
+                @break
+            @default
+                <p>Finally it's weekend XD</p>
+        @endswitch
+
+        <hr>
+
+        <!-- for...of statement -->
+        @for (skill of skills)
+            <p>{{skill}}</p>
+        @endfor
+
+        <hr>
+
+        <!-- for...in statement -->
+        @for (index in fruits)
+            <p>{{fruits[index].name + ' - ' + fruits[index].type}}</p>
+        @endfor
+
+        <hr>
+
+        <!-- while statement -->
+        @while (count <= 10)
+            <p>{{count++}}</p>
+        @endwhile
+
+    </template>
+
+    <script src="renderTemplate.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

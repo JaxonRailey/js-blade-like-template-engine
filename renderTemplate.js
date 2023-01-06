@@ -43,7 +43,7 @@ Element.prototype.renderTemplate = function(_template) {
         } else if (_row.startsWith('@endwhile')) {
             _row = _row.replace('@endwhile', '}');
         } else {
-            _row = _row.replace('{{', '${').replace('}}', '}');
+            _row = _row.replaceAll('{{', '${').replaceAll('}}', '}');
             _row = "_temp += `" + _row + "`;";
         }
 
